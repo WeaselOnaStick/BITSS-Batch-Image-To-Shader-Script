@@ -57,6 +57,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.PathSourceDialog = new System.Windows.Forms.OpenFileDialog();
             this.PathOutputDialog = new System.Windows.Forms.SaveFileDialog();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.Settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox)).BeginInit();
@@ -298,6 +299,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.linkLabel1);
@@ -316,7 +318,7 @@
             this.linkLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.Location = new System.Drawing.Point(285, 260);
+            this.linkLabel3.Location = new System.Drawing.Point(285, 280);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(126, 16);
             this.linkLabel3.TabIndex = 11;
@@ -329,7 +331,7 @@
             this.linkLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(338, 244);
+            this.linkLabel2.Location = new System.Drawing.Point(338, 264);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(73, 16);
             this.linkLabel2.TabIndex = 11;
@@ -342,7 +344,7 @@
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(378, 228);
+            this.linkLabel1.Location = new System.Drawing.Point(378, 248);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(33, 16);
             this.linkLabel1.TabIndex = 11;
@@ -354,6 +356,7 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button3.Enabled = false;
             this.button3.FlatAppearance.BorderSize = 3;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(269, 83);
@@ -367,6 +370,13 @@
             // PathSourceDialog
             // 
             this.PathSourceDialog.Multiselect = true;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(269, 226);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(140, 19);
+            this.progressBar1.TabIndex = 12;
             // 
             // Form1
             // 
@@ -424,6 +434,7 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

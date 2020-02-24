@@ -12,6 +12,8 @@ namespace ImgToP3D
 {
     public partial class Form1 : Form
     {
+        Boolean SourceSet = false;
+        Boolean OutputSet = false;
         public Form1()
         {
             InitializeComponent();
@@ -53,6 +55,9 @@ namespace ImgToP3D
                     }
                 }
                 PathSourceText.Text = str;
+                SourceSet = true;
+                if (SourceSet && OutputSet)
+                    button3.Enabled = true;
             }
         }
 
@@ -88,6 +93,9 @@ namespace ImgToP3D
             if (PathOutputDialog.ShowDialog() == DialogResult.OK)
             {
                 PathOutputText.Text = PathOutputDialog.FileName;
+                OutputSet = true;
+                if (SourceSet && OutputSet)
+                    button3.Enabled = true;
             }
         }
 
@@ -108,7 +116,7 @@ namespace ImgToP3D
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FileProcessor FP = new FileProcessor(/*TODO*/);
+            FileProcessor FP = new FileProcessor(PathSourceDialog.FileNames, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, PathOutputDialog.FileName, progressBar1);
         }
     }
 }
