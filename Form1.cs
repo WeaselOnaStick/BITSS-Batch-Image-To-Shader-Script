@@ -118,5 +118,12 @@ namespace ImgToP3D
         {
             FileProcessor FP = new FileProcessor(PathSourceDialog.FileNames, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, PathOutputDialog.FileName, progressBar1);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string[] Dinput = { "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\11.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\22.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\33.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\44.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\55.png" };
+            string Doutput = "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\test.p3dxml";
+            FileProcessor FP = new FileProcessor(Dinput, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, Doutput, progressBar1);
+        }
     }
 }

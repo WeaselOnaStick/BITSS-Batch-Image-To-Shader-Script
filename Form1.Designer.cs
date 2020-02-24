@@ -58,6 +58,7 @@
             this.PathSourceDialog = new System.Windows.Forms.OpenFileDialog();
             this.PathOutputDialog = new System.Windows.Forms.SaveFileDialog();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.Settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox)).BeginInit();
@@ -299,6 +300,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.linkLabel2);
@@ -373,10 +375,20 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(269, 226);
+            this.progressBar1.Location = new System.Drawing.Point(270, 226);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(140, 19);
             this.progressBar1.TabIndex = 12;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(270, 252);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(22, 23);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "🐜";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -435,6 +447,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button4;
     }
 }
 
