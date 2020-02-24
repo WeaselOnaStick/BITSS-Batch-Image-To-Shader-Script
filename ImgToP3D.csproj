@@ -76,6 +76,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TexShade.p3dxml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
