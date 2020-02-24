@@ -12,7 +12,7 @@ namespace ImgToP3D
     {
         FileProcessor(string[] FileNames, Color Diff, int BLMD, int FLMD, int UVMD, Boolean LIT, Boolean ATST, Boolean TSID, string OutputPath)
         {
-        
+        //TODO
         }
     }
 }

@@ -108,7 +108,7 @@ namespace ImgToP3D
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FileProcessor FP = new FileProcessor();
+            FileProcessor FP = new FileProcessor(/*TODO*/);
         }
     }
 }
