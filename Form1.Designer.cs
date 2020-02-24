@@ -51,8 +51,6 @@
             this.PathOutputText = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -333,11 +331,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.linkLabel2);
@@ -351,25 +344,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(431, 470);
             this.panel1.TabIndex = 8;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(276, 346);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(22, 23);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "🐜";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(277, 318);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(140, 19);
-            this.progressBar1.TabIndex = 12;
             // 
             // linkLabel3
             // 
@@ -609,16 +583,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox ShaderType;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox DiffHEX2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox DiffuseBox2;
-        private System.Windows.Forms.TextBox EnvTex;
     }
 }
 
