@@ -43,36 +43,37 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Settings = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.EnvTex = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.DiffHEX2 = new System.Windows.Forms.TextBox();
+            this.DiffuseBox2 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.DiffHEX = new System.Windows.Forms.TextBox();
             this.DiffuseBox = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ShaderType = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PathOutputText = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button3 = new System.Windows.Forms.Button();
             this.PathSourceDialog = new System.Windows.Forms.OpenFileDialog();
             this.PathOutputDialog = new System.Windows.Forms.SaveFileDialog();
-            this.ShaderType = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.DiffuseBox2 = new System.Windows.Forms.PictureBox();
-            this.DiffHEX2 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.EnvTex = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.Settings.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // PathSourceText
@@ -251,6 +252,88 @@
             this.Settings.TabStop = false;
             this.Settings.Text = "Settings";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.EnvTex);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.DiffHEX2);
+            this.groupBox3.Controls.Add(this.DiffuseBox2);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Location = new System.Drawing.Point(12, 231);
+            this.groupBox3.MinimumSize = new System.Drawing.Size(233, 72);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(236, 72);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Environment Map (WIP)";
+            // 
+            // EnvTex
+            // 
+            this.EnvTex.Location = new System.Drawing.Point(76, 19);
+            this.EnvTex.Name = "EnvTex";
+            this.EnvTex.Size = new System.Drawing.Size(150, 20);
+            this.EnvTex.TabIndex = 8;
+            this.EnvTex.ModifiedChanged += new System.EventHandler(this.EnvTex_ModifiedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(24, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Texture:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(104, 48);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "HEX:";
+            // 
+            // DiffHEX2
+            // 
+            this.DiffHEX2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DiffHEX2.Location = new System.Drawing.Point(139, 45);
+            this.DiffHEX2.MinimumSize = new System.Drawing.Size(88, 20);
+            this.DiffHEX2.Name = "DiffHEX2";
+            this.DiffHEX2.Size = new System.Drawing.Size(91, 20);
+            this.DiffHEX2.TabIndex = 6;
+            this.DiffHEX2.Text = "#FFFFFF";
+            this.DiffHEX2.TextChanged += new System.EventHandler(this.DiffHEX2_TextChanged);
+            this.DiffHEX2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiffHEX2_KeyPress);
+            // 
+            // DiffuseBox2
+            // 
+            this.DiffuseBox2.BackColor = System.Drawing.Color.White;
+            this.DiffuseBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DiffuseBox2.Location = new System.Drawing.Point(76, 45);
+            this.DiffuseBox2.Name = "DiffuseBox2";
+            this.DiffuseBox2.Size = new System.Drawing.Size(20, 20);
+            this.DiffuseBox2.TabIndex = 5;
+            this.DiffuseBox2.TabStop = false;
+            this.DiffuseBox2.Click += new System.EventHandler(this.DiffuseBox2_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(27, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Diffuse:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -294,6 +377,41 @@
             this.label4.Text = "Diffuse:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(9, 207);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "PDDI Shader:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // ShaderType
+            // 
+            this.ShaderType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShaderType.FormattingEnabled = true;
+            this.ShaderType.Items.AddRange(new object[] {
+            "error",
+            "simple",
+            "lightweight",
+            "lightmap",
+            "environment",
+            "spheremap",
+            "projtex",
+            "pointsprite",
+            "layered",
+            "layeredmap",
+            "toon",
+            "hctune"});
+            this.ShaderType.Location = new System.Drawing.Point(88, 204);
+            this.ShaderType.MinimumSize = new System.Drawing.Size(157, 0);
+            this.ShaderType.Name = "ShaderType";
+            this.ShaderType.Size = new System.Drawing.Size(160, 21);
+            this.ShaderType.TabIndex = 3;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -331,6 +449,10 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.linkLabel2);
@@ -344,6 +466,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(431, 470);
             this.panel1.TabIndex = 8;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(277, 318);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(140, 19);
+            this.progressBar1.TabIndex = 12;
             // 
             // linkLabel3
             // 
@@ -403,123 +533,6 @@
             // 
             this.PathSourceDialog.Multiselect = true;
             // 
-            // ShaderType
-            // 
-            this.ShaderType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShaderType.FormattingEnabled = true;
-            this.ShaderType.Items.AddRange(new object[] {
-            "error",
-            "simple",
-            "lightweight",
-            "lightmap",
-            "environment",
-            "spheremap",
-            "projtex",
-            "pointsprite",
-            "layered",
-            "layeredmap",
-            "toon",
-            "hctune"});
-            this.ShaderType.Location = new System.Drawing.Point(88, 204);
-            this.ShaderType.MinimumSize = new System.Drawing.Size(157, 0);
-            this.ShaderType.Name = "ShaderType";
-            this.ShaderType.Size = new System.Drawing.Size(160, 21);
-            this.ShaderType.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(9, 207);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "PDDI Shader:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.EnvTex);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.DiffHEX2);
-            this.groupBox3.Controls.Add(this.DiffuseBox2);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(12, 231);
-            this.groupBox3.MinimumSize = new System.Drawing.Size(233, 72);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(236, 72);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Environment Map (WIP)";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(24, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Texture:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(27, 48);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Diffuse:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // DiffuseBox2
-            // 
-            this.DiffuseBox2.BackColor = System.Drawing.Color.White;
-            this.DiffuseBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DiffuseBox2.Location = new System.Drawing.Point(76, 45);
-            this.DiffuseBox2.Name = "DiffuseBox2";
-            this.DiffuseBox2.Size = new System.Drawing.Size(20, 20);
-            this.DiffuseBox2.TabIndex = 5;
-            this.DiffuseBox2.TabStop = false;
-            this.DiffuseBox2.Click += new System.EventHandler(this.DiffuseBox2_Click);
-            // 
-            // DiffHEX2
-            // 
-            this.DiffHEX2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DiffHEX2.Location = new System.Drawing.Point(139, 45);
-            this.DiffHEX2.MinimumSize = new System.Drawing.Size(88, 20);
-            this.DiffHEX2.Name = "DiffHEX2";
-            this.DiffHEX2.Size = new System.Drawing.Size(91, 20);
-            this.DiffHEX2.TabIndex = 6;
-            this.DiffHEX2.Text = "#FFFFFF";
-            this.DiffHEX2.TextChanged += new System.EventHandler(this.DiffHEX2_TextChanged);
-            this.DiffHEX2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiffHEX2_KeyPress);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(104, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 13);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "HEX:";
-            // 
-            // EnvTex
-            // 
-            this.EnvTex.Location = new System.Drawing.Point(76, 19);
-            this.EnvTex.Name = "EnvTex";
-            this.EnvTex.Size = new System.Drawing.Size(150, 20);
-            this.EnvTex.TabIndex = 8;
-            this.EnvTex.ModifiedChanged += new System.EventHandler(this.EnvTex_ModifiedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -540,14 +553,14 @@
             this.groupBox1.PerformLayout();
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DiffuseBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -583,6 +596,15 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox ShaderType;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox DiffHEX2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox DiffuseBox2;
+        private System.Windows.Forms.TextBox EnvTex;
     }
 }
 
