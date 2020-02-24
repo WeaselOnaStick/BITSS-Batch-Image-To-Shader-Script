@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Xml;
 using System.IO;
+using System.Windows.Forms;
 
 namespace ImgToP3D
 {
@@ -19,14 +20,46 @@ namespace ImgToP3D
             writer.WriteEndElement();
         }
 
+        void WriteShaderParam(XmlTextWriter writer, string Param, int Value)            //Shader Integer Parameter (0x11003)
+        {
+            writer.WriteStartElement("Chunk");
+            writer.WriteAttributeString("Type", "0x11003");
+            writer.WriteComment('"' + Param + "\" (Shader Integer Parameter (0x11003))");
+            WriteValue(writer, "Value", Value.ToString());
+            WriteValue(writer, "Param", Param);
+            writer.WriteEndElement();
+        }
+        void WriteShaderParam(XmlTextWriter writer, string Param, string TexName)       //Shader Texture Parameter (0x11002)
+        {
+            writer.WriteStartElement("Chunk");
+            writer.WriteAttributeString("Type", "0x11002");
+            writer.WriteComment('"' + Param + "\" (Shader Texture Parameter (0x11002))");
+            WriteValue(writer, "Value", TexName);
+            WriteValue(writer, "Param", Param);
+            writer.WriteEndElement();
+        }
+        void WriteShaderParam(XmlTextWriter writer, string Param, Color Diff)            //Shader Colour Parameter (0x11005)
+        {
+            writer.WriteStartElement("Chunk");
+            writer.WriteAttributeString("Type", "0x11005");
+            writer.WriteComment('"' + Param + "\" (Shader Colour Parameter (0x11005))");
+            writer.WriteStartElement("Value");
+            writer.WriteAttributeString("Name", "Value");
+            writer.WriteAttributeString("Red",   Diff.R.ToString());
+            writer.WriteAttributeString("Green", Diff.G.ToString());
+            writer.WriteAttributeString("Blue",  Diff.B.ToString());
+            writer.WriteEndElement();
+            WriteValue(writer, "Param", Param);
+            writer.WriteEndElement();
+        }
         Boolean IsGoodDim(int x)
         {
-
             return ((x != 0) && ((x & (x - 1)) == 0))&&(x<=2048);
         }
 
-        string ErrorList = "";
-        public FileProcessor(string[] FileNames, Color Diff, int BLMD, int FLMD, int UVMD, Boolean LIT, Boolean ATST, Boolean TSID, string OutputPath, System.Windows.Forms.ProgressBar Bar)
+        public string ErrorList = "";
+        public int i;
+        public FileProcessor(string[] FileNames, string Shader, Color Diff, int BLMD, int FIMD, int UVMD, Boolean LIT, Boolean ATST, Boolean TSID, string OutputPath, System.Windows.Forms.ProgressBar Bar)
         {
             XmlTextWriter writer = new XmlTextWriter(OutputPath, Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
@@ -37,54 +70,98 @@ namespace ImgToP3D
             writer.WriteComment(OutputPath);
             Bar.Maximum = FileNames.Length;
             Bar.Value = 0;
-            int i = 0;
+            this.i = 0;
             foreach (string File in FileNames)
             {
                 Image ThisImage = Image.FromFile(File);
-                string ThisFileName = Path.GetFileName(File);
-                if (!(IsGoodDim(ThisImage.Width) && (IsGoodDim(ThisImage.Height)))){
-                    ErrorList += ThisFileName + " has invalid dimensions: " + ThisImage.Width + "x" + ThisImage.Height + "(each should be a power of 10)";
-                }
-                writer.WriteStartElement("Chunk");                                                  //Tex Start
-                writer.WriteAttributeString("Type", "0x19000");
-                writer.WriteComment(ThisFileName + " (Texture (0x19000)))");
-                WriteValue(writer, "Name", ThisFileName);
-                WriteValue(writer, "Version", "14000");
-                WriteValue(writer, "Width", ThisImage.Width.ToString());
-                WriteValue(writer, "Height", ThisImage.Height.ToString());
-                //Console.WriteLine("ImageFlags " + Convert.ToString(ThisImage.Flags, 2));
-                //WriteValue(writer, "AlphaDepth", "ALPHADEPTH GOES HERE");
-                WriteValue(writer, "TextureType", "1");
-                WriteValue(writer, "Usage", "0");
-                WriteValue(writer, "Priority", "0");
-
-                writer.WriteStartElement("Chunk");                                                  //Img Start
-                writer.WriteAttributeString("Type", "0x19001");
-                writer.WriteComment(ThisFileName + " (Image (0x19001)))");
-
-                WriteValue(writer, "Name", ThisFileName);
-                WriteValue(writer, "Version", "14000");
-                WriteValue(writer, "Width", ThisImage.Width.ToString());
-                WriteValue(writer, "Height", ThisImage.Height.ToString());
-                WriteValue(writer, "Format", "1");
-
-                writer.WriteStartElement("Chunk");                                                  //Img data Start
-                writer.WriteAttributeString("Type", "0x19002");
-                writer.WriteComment(ThisFileName + " (Image Data (0x19002)))");
-
-                using (MemoryStream m = new MemoryStream())
+                string ThisFileName = Path.GetFileNameWithoutExtension(File);
+                if (!(IsGoodDim(ThisImage.Width) && (IsGoodDim(ThisImage.Height))))
                 {
-                    ThisImage.Save(m, ThisImage.RawFormat);
-                    byte[] ImgBytes = m.ToArray();
-                    WriteValue(writer, "ImageData", Convert.ToBase64String(ImgBytes));
+                    ErrorList += Path.GetFileName(File) + " has invalid dimensions: " + ThisImage.Width + "x" + ThisImage.Height + "(each should be a power of 10)";
+                    continue;
                 }
+                if (Path.GetExtension(File) != ".png")
+                {
+                    Console.WriteLine("Processing non PNG...");
+                    MemoryStream m = new MemoryStream();
+                    ThisImage.Save(m, System.Drawing.Imaging.ImageFormat.Png);
+                    ThisImage = Image.FromStream(m);
+                }
+                //Write Texture chunk
+                {
+                    writer.WriteStartElement("Chunk");                                                  //Tex Start
+                    writer.WriteAttributeString("Type", "0x19000");
+                    writer.WriteComment(ThisFileName + " (Texture (0x19000)))");
+                    WriteValue(writer, "Name", ThisFileName);
+                    WriteValue(writer, "Version", "14000");
+                    WriteValue(writer, "Width", ThisImage.Width.ToString());
+                    WriteValue(writer, "Height", ThisImage.Height.ToString());
+                    //Console.WriteLine("ImageFlags " + Convert.ToString(ThisImage.Flags, 2));
+                    //WriteValue(writer, "AlphaDepth", "ALPHADEPTH GOES HERE");
+                    WriteValue(writer, "TextureType", "1");
+                    WriteValue(writer, "Usage", "0");
+                    WriteValue(writer, "Priority", "0");
+
+                    writer.WriteStartElement("Chunk");                                                  //Img Start
+                    writer.WriteAttributeString("Type", "0x19001");
+                    writer.WriteComment(ThisFileName + " (Image (0x19001)))");
+
+                    WriteValue(writer, "Name", ThisFileName);
+                    WriteValue(writer, "Version", "14000");
+                    WriteValue(writer, "Width", ThisImage.Width.ToString());
+                    WriteValue(writer, "Height", ThisImage.Height.ToString());
+                    WriteValue(writer, "Format", "1");
+
+                    writer.WriteStartElement("Chunk");                                                  //Img data Start
+                    writer.WriteAttributeString("Type", "0x19002");
+                    writer.WriteComment(ThisFileName + " (Image Data (0x19002)))");
+
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        ThisImage.Save(m, ThisImage.RawFormat);
+                        byte[] ImgBytes = m.ToArray();
+                        WriteValue(writer, "ImageData", Convert.ToBase64String(ImgBytes));
+                    }
 
 
-                writer.WriteEndElement();                                                           //Img data End
+                    writer.WriteEndElement();                                                           //Img data End
 
-                writer.WriteEndElement();                                                           //Img End
+                    writer.WriteEndElement();                                                           //Img End
 
-                writer.WriteEndElement();                                                           //Tex End
+                    writer.WriteEndElement();                                                           //Tex End
+                }
+                //Write Shader Chunk
+                {
+                    writer.WriteStartElement("Chunk");                                                  //Shader Start
+                    writer.WriteAttributeString("Type", "0x11000");
+                    writer.WriteComment(ThisFileName + "_m (Shader (0x11000))");
+
+                    WriteValue(writer, "Name", Path.GetFileNameWithoutExtension(File) + "_m");
+                    WriteValue(writer, "Version", "0");
+                    WriteValue(writer, "PddiShaderName", Shader);
+                    if (BLMD == 0) 
+                        WriteValue(writer, "HasTranslucency", "0");
+                    else
+                        WriteValue(writer, "HasTranslucency", "1");
+                    WriteValue(writer, "VertexNeeds", "33");
+                    if (Shader == "spheremap")
+                        WriteValue(writer, "VertexMask", "0xFFFFFFD2");
+                    else
+                        WriteValue(writer, "VertexMask", "0xFFFC3FD1");
+                    {
+                        WriteShaderParam(writer, "TEX", ThisFileName);
+                        WriteShaderParam(writer, "LIT", Convert.ToInt32(LIT).ToString());
+                        WriteShaderParam(writer, "2SID", Convert.ToInt32(TSID).ToString());
+                        WriteShaderParam(writer, "FIMD", FIMD.ToString());
+                        WriteShaderParam(writer, "BLMD", BLMD.ToString());
+                        WriteShaderParam(writer, "UVMD", UVMD.ToString());
+                        WriteShaderParam(writer, "ATST", ATST.ToString());
+                        WriteShaderParam(writer, "DIFF", Diff);
+                    }
+
+
+                    writer.WriteEndElement();                                                           //Shader End
+                }
 
                 System.Console.WriteLine(File + " processed");
                 i += 1;
@@ -94,6 +171,9 @@ namespace ImgToP3D
             writer.Flush();
             writer.Close();
             writer.Dispose();
+
+            if (ErrorList != "")
+                MessageBox.Show("Skipped files:\n"+ErrorList, "Following errors occured while converting", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

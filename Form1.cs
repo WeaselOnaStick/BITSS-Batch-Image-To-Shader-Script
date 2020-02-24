@@ -26,6 +26,7 @@ namespace ImgToP3D
             BlendMode.SelectedIndex = 1;
             FilterMode.SelectedIndex = 1;
             UVMode.SelectedIndex = 0;
+            ShaderType.SelectedIndex = 1;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -116,14 +117,36 @@ namespace ImgToP3D
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FileProcessor FP = new FileProcessor(PathSourceDialog.FileNames, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, PathOutputDialog.FileName, progressBar1);
+            FileProcessor FP = new FileProcessor(PathSourceDialog.FileNames, ShaderType.Text, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, PathOutputDialog.FileName, progressBar1);
+            progressBar1.Value = 0;
+            MessageBox.Show("Process Completed. Succesfully processed " + FP.i.ToString() + '/' + PathSourceDialog.FileNames.Length + "images!", "Complete");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string[] Dinput = { "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\11.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\22.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\33.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\44.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\55.png" };
+            string[] Dinput = { "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\11.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\22.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\33.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\44.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\Jeer_Day_Later_Blank.jpg", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\Jeer_Day_Later_Blank.png" };
             string Doutput = "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\test.p3dxml";
-            FileProcessor FP = new FileProcessor(Dinput, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, Doutput, progressBar1);
+            FileProcessor FP = new FileProcessor(Dinput, ShaderType.Text, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, Doutput, progressBar1);
+        }
+
+        private void DiffuseBox2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
+        }
+
+        private void DiffHEX2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
+        }
+
+        private void EnvTex_ModifiedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
+        }
+
+        private void DiffHEX2_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
         }
     }
 }
