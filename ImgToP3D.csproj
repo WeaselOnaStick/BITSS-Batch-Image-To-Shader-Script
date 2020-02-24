@@ -7,7 +7,7 @@
     <ProjectGuid>{0E381105-12BD-4CF4-83B1-A8899044B479}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ImgToP3D</RootNamespace>
-    <AssemblyName>ImgToP3D</AssemblyName>
+    <AssemblyName>Batch Image To Shader Script</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>med bitss.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,6 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bitss.ico" />
+    <Content Include="med bitss.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

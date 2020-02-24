@@ -508,7 +508,7 @@
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(384, 342);
+            this.linkLabel1.Location = new System.Drawing.Point(385, 345);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(33, 16);
             this.linkLabel1.TabIndex = 11;
@@ -522,12 +522,12 @@
             this.button3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button3.Enabled = false;
             this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(276, 72);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(142, 240);
             this.button3.TabIndex = 10;
-            this.button3.Text = "PUSH\r\nDA\r\nBUTTON";
+            this.button3.Text = "Process\r\nImage\r\nFiles\r\n";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

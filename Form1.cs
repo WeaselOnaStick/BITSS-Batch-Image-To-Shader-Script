@@ -112,14 +112,14 @@ namespace ImgToP3D
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //INFO
         {
-            MessageBox.Show("BITSS - Batch Image To Shader Script \nVersion - 0.1\nMade by - Weasel On A Stick\n\n\nHOW TO USE:\n1.Select input images\n2.Select output .p3dxml file to create\n3.Choose settings to be applied to all shaders\n4.Click the big button\n5.Import your .p3dxml file into your .p3d file (Tools -> Import Pure3D XML...)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("BITSS - Batch Image To Shader Script \nVersion - 1.0\nMade by - Weasel On A Stick\n\n\nHOW TO USE:\n1.Select input images\n2.Select output .p3dxml file to create\n3.Choose settings to be applied to all shaders\n4.Click the big button\n5.Import your .p3dxml file into your .p3d file (Tools -> Import Pure3D XML...)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             FileProcessor FP = new FileProcessor(PathSourceDialog.FileNames, ShaderType.Text, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, EnvTex.Text, DiffuseBox2.BackColor, PathOutputDialog.FileName, progressBar1);
             progressBar1.Value = 0;
-            MessageBox.Show("Process Completed. Succesfully processed " + FP.i.ToString() + '/' + PathSourceDialog.FileNames.Length + "images!", "Complete");
+            MessageBox.Show("Process Completed. Succesfully processed " + FP.i.ToString() + '/' + PathSourceDialog.FileNames.Length + " images!", "Complete");
         }
 
         private void DiffuseBox2_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace ImgToP3D
             {
                 Color EnvDiffColor = colorDialog2.Color;
                 DiffuseBox2.BackColor = EnvDiffColor;
-                DiffHEX.Text = "#" + EnvDiffColor.R.ToString("X2") + EnvDiffColor.G.ToString("X2") + EnvDiffColor.B.ToString("X2");
+                DiffHEX2.Text = "#" + EnvDiffColor.R.ToString("X2") + EnvDiffColor.G.ToString("X2") + EnvDiffColor.B.ToString("X2");
             }
         }
 
