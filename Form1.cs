@@ -117,36 +117,99 @@ namespace ImgToP3D
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FileProcessor FP = new FileProcessor(PathSourceDialog.FileNames, ShaderType.Text, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, PathOutputDialog.FileName, progressBar1);
+            FileProcessor FP = new FileProcessor(PathSourceDialog.FileNames, ShaderType.Text, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, EnvTex.Text, DiffuseBox2.BackColor, PathOutputDialog.FileName, progressBar1);
             progressBar1.Value = 0;
             MessageBox.Show("Process Completed. Succesfully processed " + FP.i.ToString() + '/' + PathSourceDialog.FileNames.Length + "images!", "Complete");
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string[] Dinput = { "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\11.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\22.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\33.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\44.png", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\Jeer_Day_Later_Blank.jpg", "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\Jeer_Day_Later_Blank.png" };
-            string Doutput = "d:\\GAMES\\The Simpsons Hit And Run\\tools\\dev\\AS\\test.p3dxml";
-            FileProcessor FP = new FileProcessor(Dinput, ShaderType.Text, DiffuseBox.BackColor, BlendMode.SelectedIndex, FilterMode.SelectedIndex, UVMode.SelectedIndex, LIT.Checked, ATST.Checked, TSID.Checked, Doutput, progressBar1);
-        }
-
         private void DiffuseBox2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
+            if (colorDialog2.ShowDialog() == DialogResult.OK)
+            {
+                Color EnvDiffColor = colorDialog2.Color;
+                DiffuseBox2.BackColor = EnvDiffColor;
+                DiffHEX.Text = "#" + EnvDiffColor.R.ToString("X2") + EnvDiffColor.G.ToString("X2") + EnvDiffColor.B.ToString("X2");
+            }
         }
 
         private void DiffHEX2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (DiffHEX2.Text.Length == 7)
+                {
+                    int HR, HG, HB;
+                    Boolean F = (DiffHEX2.Text.Substring(0, 1) == "#");
+                    Boolean HRS = (Int32.TryParse(DiffHEX2.Text.Substring(1, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HR));
+                    Boolean HGS = (Int32.TryParse(DiffHEX2.Text.Substring(3, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HG));
+                    Boolean HBS = (Int32.TryParse(DiffHEX2.Text.Substring(5, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HB));
+                    if (HRS && HGS && HBS && F)
+                    {
+                        DiffuseBox2.BackColor = Color.FromArgb(HR, HG, HB);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        private void EnvTex_ModifiedChanged(object sender, EventArgs e)
+        private void EnvTex_KeyPress(object sender, KeyPressEventArgs e)
         {
-            MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (EnvTex.Text != "")
+                    label7.Font = new Font(label7.Font, FontStyle.Bold);
+                else
+                    label7.Font = new Font(label7.Font, FontStyle.Regular);
+            }
         }
 
-        private void DiffHEX2_TextChanged(object sender, EventArgs e)
+        private void DiffHEX_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("Not yet implemented", "WIP", MessageBoxButtons.OK);
+            if (DiffHEX.Text.Length == 7)
+            {
+                int HR, HG, HB;
+                Boolean F = (DiffHEX.Text.Substring(0, 1) == "#");
+                Boolean HRS = (Int32.TryParse(DiffHEX.Text.Substring(1, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HR));
+                Boolean HGS = (Int32.TryParse(DiffHEX.Text.Substring(3, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HG));
+                Boolean HBS = (Int32.TryParse(DiffHEX.Text.Substring(5, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HB));
+                if (HRS && HGS && HBS && F)
+                {
+                    DiffuseBox.BackColor = Color.FromArgb(HR, HG, HB);
+                }
+                else
+                {
+                    MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DiffHEX2_Leave(object sender, EventArgs e)
+        {
+            if (DiffHEX2.Text.Length == 7)
+            {
+                int HR, HG, HB;
+                Boolean F = (DiffHEX2.Text.Substring(0, 1) == "#");
+                Boolean HRS = (Int32.TryParse(DiffHEX2.Text.Substring(1, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HR));
+                Boolean HGS = (Int32.TryParse(DiffHEX2.Text.Substring(3, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HG));
+                Boolean HBS = (Int32.TryParse(DiffHEX2.Text.Substring(5, 2), System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out HB));
+                if (HRS && HGS && HBS && F)
+                    DiffuseBox2.BackColor = Color.FromArgb(HR, HG, HB);
+                else
+                    MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

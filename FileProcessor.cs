@@ -59,7 +59,7 @@ namespace ImgToP3D
 
         public string ErrorList = "";
         public int i;
-        public FileProcessor(string[] FileNames, string Shader, Color Diff, int BLMD, int FIMD, int UVMD, Boolean LIT, Boolean ATST, Boolean TSID, string OutputPath, System.Windows.Forms.ProgressBar Bar)
+        public FileProcessor(string[] FileNames, string Shader, Color Diff, int BLMD, int FIMD, int UVMD, Boolean LIT, Boolean ATST, Boolean TSID, string EnvTex, Color EnvDiff, string OutputPath, System.Windows.Forms.ProgressBar Bar)
         {
             XmlTextWriter writer = new XmlTextWriter(OutputPath, Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
@@ -157,8 +157,15 @@ namespace ImgToP3D
                         WriteShaderParam(writer, "UVMD", UVMD.ToString());
                         WriteShaderParam(writer, "ATST", ATST.ToString());
                         WriteShaderParam(writer, "DIFF", Diff);
+                        if ((Shader == "spheremap" || Shader == "environment")&&(EnvTex != ""))
+                        {
+                            WriteShaderParam(writer, "REFL", EnvTex);
+                            if (EnvDiff != Color.FromArgb(255, 255, 255))
+                            {
+                                WriteShaderParam(writer, "ENVB", EnvDiff);
+                            }
+                        }
                     }
-
 
                     writer.WriteEndElement();                                                           //Shader End
                 }

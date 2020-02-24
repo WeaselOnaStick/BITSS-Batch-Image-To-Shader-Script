@@ -67,6 +67,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.PathSourceDialog = new System.Windows.Forms.OpenFileDialog();
             this.PathOutputDialog = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.groupBox1.SuspendLayout();
             this.Settings.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -269,7 +270,7 @@
             this.groupBox3.Size = new System.Drawing.Size(236, 72);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Environment Map (WIP)";
+            this.groupBox3.Text = "Environment Map";
             // 
             // EnvTex
             // 
@@ -277,7 +278,7 @@
             this.EnvTex.Name = "EnvTex";
             this.EnvTex.Size = new System.Drawing.Size(150, 20);
             this.EnvTex.TabIndex = 8;
-            this.EnvTex.ModifiedChanged += new System.EventHandler(this.EnvTex_ModifiedChanged);
+            this.EnvTex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnvTex_KeyPress);
             // 
             // label7
             // 
@@ -306,11 +307,11 @@
             this.DiffHEX2.Location = new System.Drawing.Point(139, 45);
             this.DiffHEX2.MinimumSize = new System.Drawing.Size(88, 20);
             this.DiffHEX2.Name = "DiffHEX2";
-            this.DiffHEX2.Size = new System.Drawing.Size(91, 20);
+            this.DiffHEX2.Size = new System.Drawing.Size(88, 20);
             this.DiffHEX2.TabIndex = 6;
             this.DiffHEX2.Text = "#FFFFFF";
-            this.DiffHEX2.TextChanged += new System.EventHandler(this.DiffHEX2_TextChanged);
             this.DiffHEX2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiffHEX2_KeyPress);
+            this.DiffHEX2.Leave += new System.EventHandler(this.DiffHEX2_Leave);
             // 
             // DiffuseBox2
             // 
@@ -354,6 +355,7 @@
             this.DiffHEX.TabIndex = 6;
             this.DiffHEX.Text = "#FFFFFF";
             this.DiffHEX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiffHEX_KeyPress);
+            this.DiffHEX.Leave += new System.EventHandler(this.DiffHEX_Leave);
             // 
             // DiffuseBox
             // 
@@ -605,6 +607,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox DiffuseBox2;
         private System.Windows.Forms.TextBox EnvTex;
+        private System.Windows.Forms.ColorDialog colorDialog2;
     }
 }
 
