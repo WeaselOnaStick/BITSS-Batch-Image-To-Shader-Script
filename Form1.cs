@@ -80,11 +80,15 @@ namespace ImgToP3D
                     else
                     {
                         MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DiffuseBox.BackColor = Color.White;
+                        DiffHEX.Text = "#FFFFFF";
                     }
                 }
                 else
                 {
                     MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DiffuseBox.BackColor = Color.White;
+                    DiffHEX.Text = "#FFFFFF";
                 }
             }
         }
@@ -150,11 +154,15 @@ namespace ImgToP3D
                     else
                     {
                         MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DiffuseBox2.BackColor = Color.White;
+                        DiffHEX2.Text = "#FFFFFF";
                     }
                 }
                 else
                 {
                     MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DiffuseBox2.BackColor = Color.White;
+                    DiffHEX2.Text = "#FFFFFF";
                 }
             }
         }
@@ -186,11 +194,15 @@ namespace ImgToP3D
                 else
                 {
                     MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DiffuseBox.BackColor = Color.White;
+                    DiffHEX.Text = "#FFFFFF";
                 }
             }
             else
             {
                 MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DiffuseBox.BackColor = Color.White;
+                DiffHEX.Text = "#FFFFFF";
             }
         }
 
@@ -207,9 +219,13 @@ namespace ImgToP3D
                     DiffuseBox2.BackColor = Color.FromArgb(HR, HG, HB);
                 else
                     MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DiffuseBox2.BackColor = Color.White;
+                DiffHEX2.Text = "#FFFFFF";
             }
             else
                 MessageBox.Show("Error, invalid HEX value", "you got the dud!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            DiffuseBox2.BackColor = Color.White;
+            DiffHEX2.Text = "#FFFFFF";
         }
     }
 }

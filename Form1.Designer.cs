@@ -134,6 +134,7 @@
             // 
             this.UVMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.UVMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UVMode.FormattingEnabled = true;
             this.UVMode.Items.AddRange(new object[] {
             "Tile",
@@ -159,6 +160,7 @@
             // 
             this.FilterMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FilterMode.FormattingEnabled = true;
             this.FilterMode.Items.AddRange(new object[] {
             "Nearest Neighbour",
@@ -186,6 +188,7 @@
             // 
             this.BlendMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.BlendMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BlendMode.FormattingEnabled = true;
             this.BlendMode.Items.AddRange(new object[] {
             "None",
@@ -394,6 +397,7 @@
             // 
             this.ShaderType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShaderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ShaderType.FormattingEnabled = true;
             this.ShaderType.Items.AddRange(new object[] {
             "error",

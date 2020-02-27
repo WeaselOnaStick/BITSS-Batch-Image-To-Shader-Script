@@ -77,7 +77,7 @@ namespace ImgToP3D
                 string ThisFileName = Path.GetFileNameWithoutExtension(File);
                 if (!(IsGoodDim(ThisImage.Width) && (IsGoodDim(ThisImage.Height))))
                 {
-                    ErrorList += Path.GetFileName(File) + " has invalid dimensions: " + ThisImage.Width + "x" + ThisImage.Height + "(each should be a power of 10)";
+                    ErrorList += Path.GetFileName(File) + " has invalid dimensions: " + ThisImage.Width + "x" + ThisImage.Height + "(each must be a power of 2 and cannot more than 2048)";
                     continue;
                 }
                 if (Path.GetExtension(File) != ".png")
@@ -150,12 +150,12 @@ namespace ImgToP3D
                         WriteValue(writer, "VertexMask", "0xFFFC3FD1");
                     {
                         WriteShaderParam(writer, "TEX", ThisFileName);
-                        WriteShaderParam(writer, "LIT", Convert.ToInt32(LIT).ToString());
-                        WriteShaderParam(writer, "2SID", Convert.ToInt32(TSID).ToString());
-                        WriteShaderParam(writer, "FIMD", FIMD.ToString());
-                        WriteShaderParam(writer, "BLMD", BLMD.ToString());
-                        WriteShaderParam(writer, "UVMD", UVMD.ToString());
-                        WriteShaderParam(writer, "ATST", ATST.ToString());
+                        WriteShaderParam(writer, "LIT", Convert.ToInt32(LIT));
+                        WriteShaderParam(writer, "2SID", Convert.ToInt32(TSID));
+                        WriteShaderParam(writer, "FIMD", FIMD);
+                        WriteShaderParam(writer, "BLMD", BLMD);
+                        WriteShaderParam(writer, "UVMD", UVMD);
+                        WriteShaderParam(writer, "ATST", Convert.ToInt32(ATST));
                         WriteShaderParam(writer, "DIFF", Diff);
                         if ((Shader == "spheremap" || Shader == "environment")&&(EnvTex != ""))
                         {
