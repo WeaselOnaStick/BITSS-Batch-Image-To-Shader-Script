@@ -116,7 +116,7 @@ namespace ImgToP3D
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //INFO
         {
-            MessageBox.Show("BITSS - Batch Image To Shader Script \nVersion - 1.0\nMade by - Weasel On A Stick\n\n\nHOW TO USE:\n1.Select input images\n2.Select output .p3dxml file to create\n3.Choose settings to be applied to all shaders\n4.Click the big button\n5.Import your .p3dxml file into your .p3d file (Tools -> Import Pure3D XML...)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("BITSS - Batch Image To Shader Script \nVersion - 1.1\nMade by - Weasel On A Stick\n\n\nHOW TO USE:\n1.Select input images\n2.Select output .p3dxml file to create\n3.Choose settings to be applied to all shaders\n4.Click the big button\n5.Import your .p3dxml file into your .p3d file (Tools -> Import Pure3D XML...)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button3_Click(object sender, EventArgs e)
