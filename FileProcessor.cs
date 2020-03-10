@@ -134,9 +134,9 @@ namespace ImgToP3D
                 {
                     writer.WriteStartElement("Chunk");                                                  //Shader Start
                     writer.WriteAttributeString("Type", "0x11000");
-                    writer.WriteComment(ThisFileName + "_m (Shader (0x11000))");
+                    writer.WriteComment(ThisFileName + " (Shader (0x11000))");
 
-                    WriteValue(writer, "Name", Path.GetFileNameWithoutExtension(File) + "_m");
+                    WriteValue(writer, "Name", Path.GetFileNameWithoutExtension(File));
                     WriteValue(writer, "Version", "0");
                     WriteValue(writer, "PddiShaderName", Shader);
                     if (BLMD == 0) 

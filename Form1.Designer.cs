@@ -99,6 +99,8 @@
             // LIT
             // 
             this.LIT.AutoSize = true;
+            this.LIT.Checked = true;
+            this.LIT.CheckState = System.Windows.Forms.CheckState.Checked;
             this.LIT.Location = new System.Drawing.Point(19, 135);
             this.LIT.Name = "LIT";
             this.LIT.Size = new System.Drawing.Size(63, 17);
