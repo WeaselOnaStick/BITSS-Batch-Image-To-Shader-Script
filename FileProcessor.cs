@@ -111,6 +111,7 @@ namespace ImgToP3D
                     WriteValue(writer, "Width", ThisImage.Width.ToString());
                     WriteValue(writer, "Height", ThisImage.Height.ToString());
                     WriteValue(writer, "Format", "1");
+                    WriteValue(writer, "HasAlpha", "1");
 
                     writer.WriteStartElement("Chunk");                                                  //Img data Start
                     writer.WriteAttributeString("Type", "0x19002");
