@@ -66,7 +66,7 @@ namespace ImgToP3D
             writer.IndentChar = '\t';
             writer.Indentation = 1;
             writer.WriteStartElement("Pure3DFile");
-            writer.WriteAttributeString("LucasPure3DEditorVersion", "4.3");
+            writer.WriteAttributeString("LucasPure3DEditorVersion", "4.4");
             writer.WriteComment(OutputPath);
             Bar.Maximum = FileNames.Length;
             Bar.Value = 0;
