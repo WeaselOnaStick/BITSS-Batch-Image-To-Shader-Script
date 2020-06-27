@@ -97,7 +97,8 @@ namespace ImgToP3D
                     WriteValue(writer, "Width", ThisImage.Width.ToString());
                     WriteValue(writer, "Height", ThisImage.Height.ToString());
                     //Console.WriteLine("ImageFlags " + Convert.ToString(ThisImage.Flags, 2));
-                    //WriteValue(writer, "AlphaDepth", "ALPHADEPTH GOES HERE");
+                    if (BLMD == 1)
+                        WriteValue(writer, "AlphaDepth", "8");             
                     WriteValue(writer, "TextureType", "1");
                     WriteValue(writer, "Usage", "0");
                     WriteValue(writer, "Priority", "0");
