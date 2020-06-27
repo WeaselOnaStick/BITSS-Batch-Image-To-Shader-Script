@@ -21,7 +21,7 @@ namespace ImgToP3D
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PathSourceDialog.Filter = "Image File(s) (*.jpg;*.jpeg;*.jpe;*.PNG)|*.jpg;*.jpeg;*.jpe;*.png";
+            PathSourceDialog.Filter = "Image File(s) (*.jpg;*.jpeg;*.jpe;*.PNG)|*.jpg;*.jpeg;*.jpe;*.png|All files (*.*)|*.*";
             PathOutputDialog.Filter = "Output Chunk Collection (*.p3dxml)|*.p3dxml";
             BlendMode.SelectedIndex = 1;
             FilterMode.SelectedIndex = 1;
